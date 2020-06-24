@@ -1,0 +1,15 @@
+{{#if details.data.page.totalElements}}
+    <span class="integration-summary-tag integration-background-color integration-border-color">
+       <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
+       <span class="integration-text-color">Total Results: {{details.data.page.totalElements}}</span>
+    </span>
+{{/if}}
+
+{{#if details.data.threats}}
+  {{#each details.data.threats as |object|}}
+      <span class="integration-summary-tag integration-background-color integration-border-color">
+         <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
+         <span class="integration-text-color">Threat Type: {{object.threatType}}</span>
+      </span>
+  {{/each}}
+{{/if}}

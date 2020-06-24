@@ -1,0 +1,145 @@
+{{#each details.data.threats as |object index|}}
+  {{#if object.threatDetailURL}}
+    <div>
+      <a href="{{object.threatDetailURL}}" class="p-link">View Threat Detail in Cofense {{fa-icon "external-link-square" class="external-link-icon"}}</a>
+    </div>
+  {{/if}}
+
+  <span class="p-title">{{fa-icon "ban" fixedWidth=true}} Block Details</span>
+
+  {{#each object.blockSet as |block index|}}
+    <h1 class="p-title">
+      Result #{{inc index}}
+    </h1>
+    {{#if block.malwareFamily.familyName}}
+      <div>
+          <span class="p-key">Malware Family: </span>
+          <span class="p-value">{{block.malwareFamily.familyName}}</span>
+      </div>
+    {{/if}}
+    {{#if block.malwareFamily.description}}
+      <div>
+          <span class="p-key">Description: </span>
+          <span class="p-value">{{block.malwareFamily.description}}</span>
+      </div>
+    {{/if}}
+    {{#if block.impact}}
+      <div>
+          <span class="p-key">Impact: </span>
+          <span class="p-value">{{block.impact}}</span>
+      </div>
+    {{/if}}
+    {{#if block.confidence}}
+      <div>
+          <span class="p-key">Confidence: </span>
+          <span class="p-value">{{block.confidence}}</span>
+      </div>
+    {{/if}}
+    {{#if block.blockType}}
+      <div>
+          <span class="p-key">Block Type: </span>
+          <span class="p-value">{{block.blockType}}</span>
+      </div>
+    {{/if}}
+    {{#if block.role}}
+      <div>
+          <span class="p-key">Role: </span>
+          <span class="p-value">{{block.role}}</span>
+      </div>
+    {{/if}}
+    {{#if block.roleDescription}}
+      <div>
+          <span class="p-key">Role Description: </span>
+          <span class="p-value">{{block.roleDescription}}</span>
+      </div>
+    {{/if}}
+    {{#if block.data}}
+      <div>
+          <span class="p-key">Value: </span>
+          <span class="p-value">{{block.data}}</span>
+      </div>
+    {{/if}}
+  {{/each}}
+  <hr>
+
+  <span class="p-title">{{fa-icon "copyright" fixedWidth=true}} Brand Impersonation Details</span>
+
+  {{#each object.campaignBrandSet as |brand index|}}
+    <h1 class="p-title">
+      Result #{{inc index}}
+    </h1>
+    {{#if brand.brand.text}}
+      <div>
+          <span class="p-key">Brand Name: </span>
+          <span class="p-value">{{brand.brand.text}}</span>
+      </div>
+    {{/if}}
+  {{/each}}
+  <hr>
+
+  <span class="p-title">{{fa-icon "envelope" fixedWidth=true}} Email Subjects</span>
+
+  {{#each object.subjectSet as |subject index|}}
+    <h1 class="p-title">
+      Result #{{inc index}}
+    </h1>
+    {{#if subject.subject}}
+      <div>
+          <span class="p-key">Subject: </span>
+          <span class="p-value">{{subject.subject}}</span>
+      </div>
+    {{/if}}
+  {{/each}}
+  <hr>
+
+  <span class="p-title">{{fa-icon "bug" fixedWidth=true}} Dropped File Details</span>
+
+  {{#each object.executableSet as |exe index|}}
+    <h1 class="p-title">
+      Result #{{inc index}}
+    </h1>
+    {{#if exe.fileName}}
+      <div>
+          <span class="p-key">File Name: </span>
+          <span class="p-value">{{exe.fileName}}</span>
+      </div>
+    {{/if}}
+    {{#if exe.type}}
+      <div>
+          <span class="p-key">File Type: </span>
+          <span class="p-value">{{exe.type}}</span>
+      </div>
+    {{/if}}
+    {{#if exe.fileNameExtension}}
+      <div>
+          <span class="p-key">File Extension: </span>
+          <span class="p-value">{{exe.fileNameExtension}}</span>
+      </div>
+    {{/if}}
+    {{#if exe.severityLevel}}
+      <div>
+          <span class="p-key">Severity: </span>
+          <span class="p-value">{{exe.severityLevel}}</span>
+      </div>
+    {{/if}}
+    {{#if exe.md5Hex}}
+      <div>
+          <span class="p-key">MD5 Hash: </span>
+          <span class="p-value">{{exe.md5Hex}}</span>
+      </div>
+    {{/if}}
+    {{#if exe.sha1Hex}}
+      <div>
+          <span class="p-key">SHA-1 Hash: </span>
+          <span class="p-value">{{exe.sha1Hex}}</span>
+      </div>
+    {{/if}}
+    {{#if exe.sha256Hex}}
+      <div>
+          <span class="p-key">SHA-256 Hash: </span>
+          <span class="p-value">{{exe.sha256Hex}}</span>
+      </div>
+    {{/if}}
+  {{/each}}
+  <hr>
+{{/each}}
