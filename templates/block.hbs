@@ -1,4 +1,7 @@
 {{#each details.data.threats as |object index|}}
+  {{#if (gt index 0)}}
+    <hr>
+  {{/if}}
   {{#if object.threatDetailURL}}
     <div>
       <a href="{{object.threatDetailURL}}" class="p-link">View Threat Detail in Cofense {{fa-icon "external-link-square" class="external-link-icon"}}</a>
@@ -20,7 +23,7 @@
     {{#if block.malwareFamily.description}}
       <div>
           <span class="p-key">Description: </span>
-          <span class="p-value">{{block.malwareFamily.description}}</span>
+          <span class="p-value description">{{block.malwareFamily.description}}</span>
       </div>
     {{/if}}
     {{#if block.impact}}
@@ -50,7 +53,7 @@
     {{#if block.roleDescription}}
       <div>
           <span class="p-key">Role Description: </span>
-          <span class="p-value">{{block.roleDescription}}</span>
+          <span class="p-value description">{{block.roleDescription}}</span>
       </div>
     {{/if}}
     {{#if block.data}}
@@ -141,5 +144,4 @@
       </div>
     {{/if}}
   {{/each}}
-  <hr>
 {{/each}}

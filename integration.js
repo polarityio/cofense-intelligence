@@ -77,8 +77,8 @@ function doLookup(entities, options, cb) {
 
     Logger.trace({ requestOptions }, 'Request Options');
 
-    tasks.push(function(done) {
-      requestWithDefaults(requestOptions, function(error, res, body) {
+    tasks.push(function (done) {
+      requestWithDefaults(requestOptions, function (error, res, body) {
         Logger.trace({ body, status: res.statusCode });
         let processedResult = handleRestError(error, entity, res, body);
 
@@ -109,7 +109,7 @@ function doLookup(entities, options, cb) {
         lookupResults.push({
           entity: result.entity,
           data: {
-            summary: [],
+            summary: getTags(result.body),
             details: result.body
           }
         });
@@ -119,6 +119,25 @@ function doLookup(entities, options, cb) {
     Logger.debug({ lookupResults }, 'Results');
     cb(null, lookupResults);
   });
+}
+
+function getTags(results) {
+  let tags = [];
+
+  if (results.data && results.data.page && results.data.page.totalElements) {
+    tags.push(`Total Results: ${results.data.page.totalElements}`);
+  }
+
+  if (results.data && Array.isArray(results.data.threats)) {
+    results.data.threats.forEach((threat) => {
+      tags.push(`Threat Type: ${threat.threatType}`);
+    });
+  }
+
+  if (tags.length === 0) {
+    tags.push('No Summary Tags');
+  }
+  return tags;
 }
 
 function handleRestError(error, entity, res, body) {
@@ -140,19 +159,19 @@ function handleRestError(error, entity, res, body) {
   } else if (res.statusCode === 400) {
     result = {
       error: 'Bad Request',
-      detail: "Request was invalid"
+      detail: 'Request was invalid'
     };
   } else if (res.statusCode === 401) {
     result = {
       error: 'Unauthorized',
-      detail: "Unauthorized, please check your credentials"
+      detail: 'Unauthorized, please check your credentials'
     };
   } else if (res.statusCode === 404) {
     result = {
       error: 'Not Found',
-      detail: "Query resulted in not found"
+      detail: 'Query resulted in not found'
     };
-  } else if (Math.round(statusCode / 10) * 10 === 500) {
+  } else {
     result = {
       error: body,
       statusCode: res ? res.statusCode : 'Unknown',

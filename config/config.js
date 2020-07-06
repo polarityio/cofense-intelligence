@@ -43,14 +43,6 @@ module.exports = {
       file: './templates/block.hbs'
     }
   },
-  summary: {
-    component: {
-      file: './components/summary.js'
-    },
-    template: {
-      file: './templates/summary.hbs'
-    }
-  },
   request: {
     // Provide the path to your certFile. Leave an empty string to ignore this option.
     // Relative paths are relative to the integration's root directory
@@ -68,19 +60,18 @@ module.exports = {
     // the url parameter (by embedding the auth info in the uri)
     proxy: '',
 
-    rejectUnauthorized: false
+    rejectUnauthorized: true
   },
   logging: {
-    level: 'trace' //trace, debug, info, warn, error, fatal
+    level: 'info' //trace, debug, info, warn, error, fatal
   },
   options: [
     {
-      key: "url",
-      name: "Base URL for the Cofense Intelligence REST API",
-      description:
-        "The base URL for the Cofense Intelligence REST API including the schema (i.e., https://)",
-      type: "text",
-      default: "https://www.threathq.com",
+      key: 'url',
+      name: 'Base URL for the Cofense Intelligence REST API',
+      description: 'The base URL for the Cofense Intelligence REST API including the schema (i.e., https://).  Default Value: https://www.threathq.com',
+      type: 'text',
+      default: 'https://www.threathq.com',
       userCanEdit: false,
       adminOnly: true
     },
@@ -96,7 +87,7 @@ module.exports = {
     {
       key: 'apiPass',
       name: 'API Password',
-      description: 'Valid Cofense Intelligence API Password associated with the specified Username',
+      description: 'Valid Cofense Intelligence API Password associated with the specified API Username',
       default: '',
       type: 'password',
       userCanEdit: true,
