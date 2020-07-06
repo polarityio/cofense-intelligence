@@ -2,6 +2,8 @@
 
 The Polarity Cofense Intelligence™ integration allows Polarity to quickly identify malicious file hashes contained within the Cofense Intelligence™ platform.
 
+<img src="./assets/overlay.png" width="50%">
+
 ## Cofense Integration Settings 
 
 ### Cofense URL 
