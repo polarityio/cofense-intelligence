@@ -171,7 +171,7 @@ function handleRestError(error, entity, res, body) {
       error: 'Not Found',
       detail: 'Query resulted in not found'
     };
-  } else if (Math.round(statusCode / 10) * 10 === 500) {
+  } else {
     result = {
       error: body,
       statusCode: res ? res.statusCode : 'Unknown',
