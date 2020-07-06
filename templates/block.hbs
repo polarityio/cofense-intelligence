@@ -1,4 +1,7 @@
 {{#each details.data.threats as |object index|}}
+  {{#if (gt index 0)}}
+    <hr>
+  {{/if}}
   {{#if object.threatDetailURL}}
     <div>
       <a href="{{object.threatDetailURL}}" class="p-link">View Threat Detail in Cofense {{fa-icon "external-link-square" class="external-link-icon"}}</a>
@@ -141,5 +144,4 @@
       </div>
     {{/if}}
   {{/each}}
-  <hr>
 {{/each}}
