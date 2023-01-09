@@ -1,0 +1,62 @@
+{
+  "name": "Cofense Intelligence",
+  "acronym": "COF",
+  "onDemandOnly": false,
+  "description": "Cofense Intelligence provides accurate and timely alerts to strengthen your organizationb\u0000\u0019s ability to quickly identify and respond to phishing attacks in progress",
+  "entityTypes": [
+    "hash",
+    "IPv4",
+    "domain"
+  ],
+  "styles": [
+    "./styles/style.less"
+  ],
+  "block": {
+    "component": {
+      "file": "./components/block.js"
+    },
+    "template": {
+      "file": "./templates/block.hbs"
+    }
+  },
+  "request": {
+    "cert": "",
+    "key": "",
+    "passphrase": "",
+    "ca": "",
+    "proxy": "",
+    "rejectUnauthorized": true
+  },
+  "logging": {
+    "level": "info"
+  },
+  "options": [
+    {
+      "key": "url",
+      "name": "Base URL for the Cofense Intelligence REST API",
+      "description": "The base URL for the Cofense Intelligence REST API including the schema (i.e., https://).  Default Value: https://www.threathq.com",
+      "type": "text",
+      "default": "https://www.threathq.com",
+      "userCanEdit": false,
+      "adminOnly": true
+    },
+    {
+      "key": "apiUser",
+      "name": "API Username",
+      "description": "Valid Cofense Intelligence API Username",
+      "default": "",
+      "type": "text",
+      "userCanEdit": true,
+      "adminOnly": false
+    },
+    {
+      "key": "apiPass",
+      "name": "API Password",
+      "description": "Valid Cofense Intelligence API Password associated with the specified API Username",
+      "default": "",
+      "type": "password",
+      "userCanEdit": true,
+      "adminOnly": false
+    }
+  ]
+}
