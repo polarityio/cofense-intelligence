@@ -26,6 +26,7 @@ module.exports = {
   description:
     'Cofense Intelligence provides accurate and timely alerts to strengthen your organization’s ability to quickly identify and respond to phishing attacks in progress',
   entityTypes: ['hash', 'ipv4', 'domain'],
+  defaultColor: 'light-pink',
   /**
    * Provide custom component logic and template for rendering the integration details block.  If you do not
    * provide a custom template and/or component then the integration will display data as a table of key value
@@ -69,7 +70,8 @@ module.exports = {
     {
       key: 'url',
       name: 'Base URL for the Cofense Intelligence REST API',
-      description: 'The base URL for the Cofense Intelligence REST API including the schema (i.e., https://).  Default Value: https://www.threathq.com',
+      description:
+        'The base URL for the Cofense Intelligence REST API including the schema (i.e., https://).  Default Value: https://www.threathq.com',
       type: 'text',
       default: 'https://www.threathq.com',
       userCanEdit: false,

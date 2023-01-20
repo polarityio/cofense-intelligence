@@ -3,14 +3,9 @@
   "acronym": "COF",
   "onDemandOnly": false,
   "description": "Cofense Intelligence provides accurate and timely alerts to strengthen your organizationb\u0000\u0019s ability to quickly identify and respond to phishing attacks in progress",
-  "entityTypes": [
-    "hash",
-    "IPv4",
-    "domain"
-  ],
-  "styles": [
-    "./styles/style.less"
-  ],
+  "entityTypes": ["hash", "IPv4", "domain"],
+  "defaultColor": "light-pink",
+  "styles": ["./styles/style.less"],
   "block": {
     "component": {
       "file": "./components/block.js"
