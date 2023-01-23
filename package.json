@@ -1,10 +1,10 @@
 {
-  "main": "./integration.js",
   "name": "cofense",
-  "version": "3.0.1-beta",
+  "version": "3.0.2-beta",
+  "main": "./integration.js",
   "private": true,
   "dependencies": {
-    "request": "^2.88",
-    "async": "^3.2.0"
+    "async": "^3.2.0",
+    "postman-request": "^2.88.1-postman.31"
   }
 }
