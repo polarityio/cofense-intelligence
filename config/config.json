@@ -4,7 +4,7 @@
   "acronym": "COF",
   "onDemandOnly": false,
   "description": "Cofense Intelligence provides accurate and timely alerts to strengthen your organizationb\u0000\u0019s ability to quickly identify and respond to phishing attacks in progress",
-  "entityTypes": ["hash", "IPv4", "domain"],
+  "entityTypes": ["MD5", "SHA1", "SHA256", "IPv4", "domain"],
   "defaultColor": "light-pink",
   "styles": ["./styles/style.less"],
   "block": {
@@ -14,13 +14,6 @@
     "template": {
       "file": "./templates/block.hbs"
     }
-  },
-  "request": {
-    "cert": "",
-    "key": "",
-    "passphrase": "",
-    "ca": "",
-    "proxy": ""
   },
   "logging": {
     "level": "info"
